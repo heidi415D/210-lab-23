@@ -80,8 +80,17 @@ int main_menu() {
         trip.push_back(g);
 
         cout << "Added goat: " << names[rand_name]
-        << " (" << rand_age << " , " << colors[rand_color] << ")" << endl;
+        << " (" << rand_age << " , " << colors[and_color] << ")" << endl;
 
+    void display_trip(list<Goat trip>) {
+        if (trip.empty) {
+            cout << "No goats in the trip yet" << endl;
+            return;
+        }
+
+        cout << "\nCurrent Goats: " << endl;
+        int i = 1
+    }
        
 }
 
