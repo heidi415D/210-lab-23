@@ -52,3 +52,22 @@ int main() {
     return 0;
 }
 
+int main_menu() {
+    cout << "\n*** GOAT MANAGER 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] Display all goats" << endl;
+    cout << "[4] Exit" << endl;
+    cout << "Enter choice: ";
+
+    int c;
+    cin >> c;
+
+    // basic input validation -- check later
+    while (c < 1 || c > 4) {
+        cout << "Invalid choice. Enter choice: ";
+        cin >> c;
+    }
+    retunr c;
+}
+
