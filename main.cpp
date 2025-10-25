@@ -69,5 +69,19 @@ int main_menu() {
         cin >> c;
     }
     retunr c;
+
+    void add_goat(list<Goat> &trip, string names[], string colors[]) {
+        int rand_name = rand() % SZ_NAMES;
+        int rand_age = rand() % MAX_AGE;
+        int rand_color = rand() % SZ_COLORS;
+
+         // 3-arg goat constructor
+        Goat g(names[rand_name], rand_age, colors[rand_color]);
+        trip.push_back(g);
+
+        cout << "Added goat: " << names[rand_name]
+        << " (" << rand_age << " , " << colors[rand_color] << ")" << endl;
+
+       
 }
 
