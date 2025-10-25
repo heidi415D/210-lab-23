@@ -90,6 +90,11 @@ int main_menu() {
 
         cout << "\nCurrent Goats: " << endl;
         int i = 1
+        for (auto g : trip) 
+            cout << "[" << ++i << "] "
+                 << g.get_name() << " ("
+                 << g.get_age() << ", "
+                 << g.get_color() << ")" << endl;
     }
        
 }
