@@ -13,7 +13,10 @@ private:
 public: 
     Goat()                          { name = ""; age = 0; color = ""; }
     // Three new constructors
-    Goat(string n) { name = n; age = 0; color = "Unkown"}
+    Goat(string n) { name = n; age = 0; color = "Unkown"; }
+    Goat(string n, int a) { name = n; age = a; color = "Unkown"; }
+    Goat(string n, int a, string c) { name = n; age = a; color = c; }
+
     // setters and getters
     void set_name(string n)         { name = n; };
     string get_name() const         { return name; };
@@ -22,7 +25,10 @@ public:
     void set_color(string c)        { color = c; }
     string get_color() const        { return color; }
 
-    // write overloaded < operator for the std::list
+    // overloaded < operator
+    bool operator<(const Goat &g) const {
+        return name < rhs.name;
+    }
 };
 
 #endif

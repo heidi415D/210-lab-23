@@ -29,7 +29,24 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    list<Goat> trip; // linked list to hold all goats
+    int choice; // user's menu choice
 
+    do {
+        choice = main_menu(); // display the menu and get choices
+
+        if (choice == 1) 
+            add_goat(trip, names, colors);
+        
+        else if (choice == 2) 
+            delete_goat(trip);
+        
+        else if (choice == 3) 
+            display_trip(trip);
+
+        else cout << "Goodbye!" << endl;
+        
+    } whilce (choice != 4);
 
 
     return 0;
