@@ -74,7 +74,7 @@ int main_menu() {
 
     void add_goat(list<Goat> &trip, string names[], string colors[]) { // function to add a goat
         int rand_name = rand() % SZ_NAMES;
-        int rand_age = rand() % MAX_AGE;
+        int rand_age = rand() % (MAX_AGE + 1);
         int rand_color = rand() % SZ_COLORS;
 
          // 3-arg goat constructor
