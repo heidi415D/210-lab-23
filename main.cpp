@@ -82,10 +82,10 @@ int main_menu() {
         trip.push_back(g);
 
         cout << "Added goat: " << names[rand_name]
-        << " (" << rand_age << " , " << colors[and_color] << ")" << endl;
+        << " (" << rand_age << " , " << colors[rand_color] << ")" << endl;
 
-    void display_trip(list<Goat trip>) { // function to display all goats
-        if (trip.empty) {
+    void display_trip(list<Goat> trip) { // function to display all goats
+        if (trip.empty()) {
             cout << "No goats in the trip yet" << endl;
             return;
         }
@@ -125,7 +125,7 @@ int main_menu() {
             return;
     }
         auto it = trip.begin(); // iterator to the beginning
-        advance(it, pick);
+        advance(it, pick-1);
         cout << "Deleting goat: " << it->get_name() << endl;
         trip.erase(it);
     }
