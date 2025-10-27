@@ -3,10 +3,12 @@
 #include <iomanip>
 #include <list>
 #include "Goat.h"
+
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
+// function prototypes
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
@@ -46,7 +48,7 @@ int main() {
 
         else cout << "Goodbye!" << endl;
         
-    } whilce (choice != 4);
+    } while (choice != 4);
 
 
     return 0;
@@ -68,9 +70,9 @@ int main_menu() {
         cout << "Invalid choice. Enter choice: ";
         cin >> c;
     }
-    retunr c;
+    return c;
 
-    void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    void add_goat(list<Goat> &trip, string names[], string colors[]) { // function to add a goat
         int rand_name = rand() % SZ_NAMES;
         int rand_age = rand() % MAX_AGE;
         int rand_color = rand() % SZ_COLORS;
@@ -82,14 +84,14 @@ int main_menu() {
         cout << "Added goat: " << names[rand_name]
         << " (" << rand_age << " , " << colors[and_color] << ")" << endl;
 
-    void display_trip(list<Goat trip>) {
+    void display_trip(list<Goat trip>) { // function to display all goats
         if (trip.empty) {
             cout << "No goats in the trip yet" << endl;
             return;
         }
 
         cout << "\nCurrent Goats: " << endl;
-        int i = 1
+        int i = 1;
         for (auto g : trip) 
             cout << "[" << ++i << "] "
                  << g.get_name() << " ("
@@ -97,7 +99,7 @@ int main_menu() {
                  << g.get_color() << ")" << endl;
     }
 
-    int select_goat(list<Goat> trip) {
+    int select_goat(list<Goat> trip) { // function to select a goat
         int i = 1;
         for (auto g : trip)
             cout << "[" << i++ << "] "
@@ -111,7 +113,7 @@ int main_menu() {
         return n;
     }
 
-    void delete_goat(list<Goat> &trip) {
+    void delete_goat(list<Goat> &trip) { // function to delete a goat
         if (trip.empty()) {
             cout << "No goats to delete." << endl;
             return;
@@ -122,7 +124,14 @@ int main_menu() {
             cout << "Invalid selection." << endl;
             return;
     }
+        auto it = trip.begin(); // iterator to the beginning
+        advance(it, pick);
+        cout << "Deleting goat: " << it->get_name() << endl;
+        trip.erase(it);
+    }
 
-       
-}
+ }
+
+};
+
 
