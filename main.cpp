@@ -111,7 +111,18 @@ int main_menu() {
         return n;
     }
 
-    
+    void delete_goat(list<Goat> &trip) {
+        if (trip.empty()) {
+            cout << "No goats to delete." << endl;
+            return;
+        }
+
+        int pick = select_goat(trip);
+        if (pick < 1 || pick > trip.size()) {
+            cout << "Invalid selection." << endl;
+            return;
+    }
+
        
 }
 
