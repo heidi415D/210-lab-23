@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <ctime>
 #include "Goat.h"
 
 using namespace std;
@@ -65,13 +66,20 @@ int main_menu() {
     int c;
     cin >> c;
 
-    // basic input validation -- check later
-    while (c < 1 || c > 4) {
-        cout << "Invalid choice. Enter choice: ";
-        cin >> c;
+    // basic input validation 
+    while (true) {
+        if (!(cin >> c)) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid input. Enter choice: ";
+            continue;
+        }
+        if (c >= 1 && c <= 4)
+            break;
+            cout << "Choice out of range. Enter choice: ";
     }
-    return c;
-
+        
+    
     void add_goat(list<Goat> &trip, string names[], string colors[]) { // function to add a goat
         int rand_name = rand() % SZ_NAMES;
         int rand_age = rand() % (MAX_AGE + 1);
@@ -83,16 +91,17 @@ int main_menu() {
 
         cout << "Added goat: " << names[rand_name]
         << " (" << rand_age << " , " << colors[rand_color] << ")" << endl;
+    }
 
     void display_trip(list<Goat> trip) { // function to display all goats
         if (trip.empty()) {
-            cout << "No goats in the trip yet" << endl;
+            cout << "No goats in the trip yet." << endl;
             return;
         }
 
         cout << "\nCurrent Goats: " << endl;
         int i = 1;
-        for (auto g : trip) 
+        for (auto &g : trip) 
             cout << "[" << ++i << "] "
                  << g.get_name() << " ("
                  << g.get_age() << ", "
@@ -101,7 +110,7 @@ int main_menu() {
 
     int select_goat(list<Goat> trip) { // function to select a goat
         int i = 1;
-        for (auto g : trip)
+        for (auto &g : trip)
             cout << "[" << i++ << "] "
                  << g.get_name() << " ("
                  << g.get_age() << ", "
@@ -130,8 +139,7 @@ int main_menu() {
         trip.erase(it);
     }
 
- }
+ 
 
-};
 
 
