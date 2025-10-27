@@ -64,7 +64,6 @@ int main_menu() {
     cout << "Enter choice: ";
 
     int c;
-    cin >> c;
 
     // basic input validation 
     while (true) {
@@ -78,7 +77,8 @@ int main_menu() {
             break;
             cout << "Choice out of range. Enter choice: ";
     }
-        
+        return c;
+}
     
     void add_goat(list<Goat> &trip, string names[], string colors[]) { // function to add a goat
         int rand_name = rand() % SZ_NAMES;
@@ -102,7 +102,7 @@ int main_menu() {
         cout << "\nCurrent Goats: " << endl;
         int i = 1;
         for (auto &g : trip) 
-            cout << "[" << ++i << "] "
+            cout << "[" << i++ << "] "
                  << g.get_name() << " ("
                  << g.get_age() << ", "
                  << g.get_color() << ")" << endl;
@@ -134,7 +134,7 @@ int main_menu() {
             return;
     }
         auto it = trip.begin(); // iterator to the beginning
-        advance(it, pick-1);
+        advance(it, pick - 1);
         cout << "Deleting goat: " << it->get_name() << endl;
         trip.erase(it);
     }
