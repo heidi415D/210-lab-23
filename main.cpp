@@ -18,7 +18,6 @@ int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -75,6 +74,7 @@ int main_menu() {
         }
         if (c >= 1 && c <= 4)
             break;
+        else
             cout << "Choice out of range. Enter choice: ";
     }
         return c;
@@ -99,14 +99,21 @@ int main_menu() {
             return;
         }
 
-        cout << "\nCurrent Goats: " << endl;
+        cout << "\n==============================" << endl;
+        cout << "       CURRENT GOAT TRIP      " << endl;
+        cout << "==============================" << endl;
+
         int i = 1;
         for (auto &g : trip) 
-            cout << "[" << i++ << "] "
-                 << g.get_name() << " ("
-                 << g.get_age() << ", "
-                 << g.get_color() << ")" << endl;
+            cout << "[" << setw(2) << i++ << "] "
+                << left << setw(12) << g.get_name()
+                << " age: " << setw(3) << g.get_age() 
+                << " color: "<< g.get_color() << endl;
+
+            cout << "------------------------------" << endl;
+            cout << "Total goats: " << trip.size() << endl;
     }
+    
 
     int select_goat(list<Goat> trip) { // function to select a goat
         int i = 1;
