@@ -54,7 +54,7 @@ int main() {
     return 0;
 }
 
-int main_menu() {
+int main_menu() { // display menu
     cout << "\n*** GOAT MANAGER 3001 ***" << endl;
     cout << "[1] Add a goat" << endl;
     cout << "[2] Delete a goat" << endl;
@@ -104,7 +104,7 @@ int main_menu() {
         cout << "==============================" << endl;
 
         int i = 1;
-        for (auto &g : trip) 
+        for (auto &g : trip) // go through each goat in the list
             cout << "[" << setw(2) << i++ << "] "
                 << left << setw(12) << g.get_name()
                 << " age: " << setw(3) << g.get_age() 
@@ -136,11 +136,11 @@ int main_menu() {
         }
 
         int pick = select_goat(trip);
-        if (pick < 1 || pick > trip.size()) {
+        if (pick < 1 || pick > trip.size()) { // make sure pick is valid
             cout << "Invalid selection." << endl;
             return;
     }
-        auto it = trip.begin(); // iterator to the beginning
+        auto it = trip.begin(); // use iterator to move to the correct goat
         advance(it, pick - 1);
         cout << "Deleting goat: " << it->get_name() << endl;
         trip.erase(it);

@@ -14,20 +14,20 @@ public:
     Goat()                          { name = ""; age = 0; color = ""; }
     // Three new constructors
     Goat(string n) { name = n; age = 0; color = "Unkown"; }
-    Goat(string n, int a) { name = n; age = a; color = "Unkown"; }
+    Goat(string n, int a) { name = n; age = a; color = "Unknown"; }
     Goat(string n, int a, string c) { name = n; age = a; color = c; }
 
     // setters and getters
-    void set_name(string n)         { name = n; };
-    string get_name() const         { return name; };
-    void set_age(int a)             { age = a; };
+    void set_name(string n)         { name = n; }
+    string get_name() const         { return name; }
+    void set_age(int a)             { age = a; }
     int get_age() const             { return age; }
     void set_color(string c)        { color = c; }
     string get_color() const        { return color; }
 
     // overloaded < operator
     bool operator<(const Goat &g) const {
-        return name < rhs.name;
+        return name < g.name;
     }
 };
 
