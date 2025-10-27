@@ -96,6 +96,22 @@ int main_menu() {
                  << g.get_age() << ", "
                  << g.get_color() << ")" << endl;
     }
+
+    int select_goat(list<Goat> trip) {
+        int i = 1;
+        for (auto g : trip)
+            cout << "[" << i++ << "] "
+                 << g.get_name() << " ("
+                 << g.get_age() << ", "
+                 << g.get_color() << ")" << endl;
+
+        cout << "Select goat number: ";
+        int n;
+        cin >> n;
+        return n;
+    }
+
+    
        
 }
 
